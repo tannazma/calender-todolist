@@ -20,8 +20,7 @@
 }
 
 .selected {
-    background-color: varr(--light-blue);
-    color: rgb(149, 25, 25);
+    background-color: var(--light-blue);
 }
 
 .weekend {

@@ -12,15 +12,21 @@ const getDayName = day => {
 
 for (let day = 1; day <= 31; day++) {
     let name = ""
-    if (day <=7){
+    if (day <= 7) {
 
         const dayName = getDayName(day);
-        name= `<div class="name" >${dayName}</div>`;
+        name = `<div class="name" >${dayName}</div>`;
     }
-    
+
 
     const weekend = isWeekend(day);
 
     calendar.insertAdjacentHTML("beforeend", `<div class="day ${weekend ? "weekend" : ""}">
     ${name}${day}</div>`);
 }
+
+document.querySelectorAll("#app-calendar .day").forEach(day => {
+    day.addEventListener("click", event => {
+        event.currentTarget.classList.toggle("selected");
+    });
+});
