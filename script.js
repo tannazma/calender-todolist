@@ -5,14 +5,16 @@ function isWeekend(day) {
 
 const calendar = document.querySelector("#app-calendar");
 
-
+const getDayName = day => {
+    const date = new Date(Date.UTC(2018, 0, day));
+    return new Intl.DateTimeFormat("en-US", {weekday: "short"}).format(date);
+}
 
 for (let day = 1; day <= 31; day++) {
-    const date = new Date(Date.UTC(2018, 0, day));
-    const options = { weekday: "short" };
-    const dayName =new Intl.DateTimeFormat("en-US" ,options).format(date);
-    console.log(dayName) 
-    const weekend = isWeekend(day)
-    console.log(weekend ? "weekend" : "")
-    calendar.insertAdjacentHTML("beforeend", `<div class="day ${weekend ? "weekend" : ""}">${day}</div>`);
+
+    const dayName = getDayName(day);
+    const weekend = isWeekend(day);
+
+    calendar.insertAdjacentHTML("beforeend", `<div class="day ${weekend ? "weekend" : ""}">
+    <div class="name" >${dayName}</div>${day}</div>`);
 }
