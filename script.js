@@ -1,4 +1,5 @@
 // import { isWeekend } from "./date-helpers.js";
+let currentOpenDay;
 function isWeekend(day) {
     return day % 7 === 0 || day % 7 === 6;
 }
@@ -27,7 +28,8 @@ for (let day = 1; day <= 31; day++) {
 
 document.querySelectorAll("#app-calendar .day").forEach(dayDiv => {
     dayDiv.addEventListener("click", event => {
-        showDialog();
+        showDialog(); 
+        currentOpenDay = dayDiv;
         event.currentTarget.classList.toggle("selected");
     });
 });
@@ -48,5 +50,5 @@ function addTasks() {
     // console.log(inputTasks.value);
     const taskDiv = document.createElement('div');
     taskDiv.textContent = inputTasks.value;
-    document.body.appendChild(taskDiv)
+    currentOpenDay.appendChild(taskDiv)
 }
