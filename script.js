@@ -27,6 +27,15 @@ for (let day = 1; day <= 31; day++) {
 
 document.querySelectorAll("#app-calendar .day").forEach(day => {
     day.addEventListener("click", event => {
+        showDialog();
         event.currentTarget.classList.toggle("selected");
     });
 });
+
+function showDialog() {
+    document.querySelector('#buy-dialog').style.display = 'grid';
+}
+
+function closeDialog() {
+    document.querySelector('#buy-dialog').style.display = 'none';
+}

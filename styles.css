@@ -37,3 +37,18 @@
     grid-template-rows: repeat(5, 1fr);
     height: 100%;
 }
+
+.modal-box {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    display: none;
+    place-content: center;
+}
+
+.background {
+    background: white;
+    padding: 20px
+}
