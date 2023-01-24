@@ -25,8 +25,8 @@ for (let day = 1; day <= 31; day++) {
     ${name}${day}</div>`);
 }
 
-document.querySelectorAll("#app-calendar .day").forEach(day => {
-    day.addEventListener("click", event => {
+document.querySelectorAll("#app-calendar .day").forEach(dayDiv => {
+    dayDiv.addEventListener("click", event => {
         showDialog();
         event.currentTarget.classList.toggle("selected");
     });
@@ -38,4 +38,15 @@ function showDialog() {
 
 function closeDialog() {
     document.querySelector('#buy-dialog').style.display = 'none';
+}
+
+const addTaskButton = document.querySelector('.add-task');
+addTaskButton.addEventListener("click", addTasks)
+
+function addTasks() {
+    const inputTasks = document.querySelector('.input-task');
+    // console.log(inputTasks.value);
+    const taskDiv = document.createElement('div');
+    taskDiv.textContent = inputTasks.value;
+    document.body.appendChild(taskDiv)
 }
