@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,16 +7,22 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div id="app-calendar"></div>
     <div class="modal-box" id="buy-dialog">
         <div class="background">
-            <img />
-            <input class="input-task" placeholder="Add your tasks">
-            <button class="add-task"> Add</button>
-            <button onclick="closeDialog()">cancel </button>
+            <div>
+                <input class="input-task input-event" placeholder="Add your tasks or events">
+                <button onclick="closeDialog()" class="closeBtn">&times; </button>
+                <div class="taskEvent">
+                    <button class="add-task"> Task</button>
+                    <button class="add-event"> Event</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

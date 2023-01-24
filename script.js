@@ -50,5 +50,18 @@ function addTasks() {
     // console.log(inputTasks.value);
     const taskDiv = document.createElement('div');
     taskDiv.textContent = inputTasks.value;
-    currentOpenDay.appendChild(taskDiv)
+    currentOpenDay.appendChild(taskDiv);
+    taskDiv.classList.add('new-task');
+}
+
+const addEventButton = document.querySelector('.add-event');
+addEventButton.addEventListener("click", addEvents)
+
+function addEvents() {
+    const inputEvents = document.querySelector('.input-event');
+    // console.log(inputEvents.value);
+    const eventDiv = document.createElement('div');
+    eventDiv.textContent = inputEvents.value;
+    currentOpenDay.appendChild(eventDiv);
+    eventDiv.classList.add('new-event');
 }

@@ -1,6 +1,8 @@
 :root {
     --light-gray: #DADCE0;
     --light-blue: #189CE2;
+    --light-yellow: rgb(211, 197, 150);
+
 
 }
 
@@ -20,7 +22,7 @@
 }
 
 .selected {
-    background-color: var(--light-blue);
+    background-color: blanchedalmond;
 }
 
 .weekend {
@@ -46,9 +48,45 @@
     top: 0;
     display: none;
     place-content: center;
+
 }
 
 .background {
     background: white;
-    padding: 20px
+    padding: 15px;
+    display: flex;
+    flex: 2;
+    border-radius: 10px;
+}
+
+.new-task {
+    background-color: rgb(187, 114, 223);
+    padding: 3px 3px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
+    border-radius: 3px;
+}
+
+.new-event {
+    background-color: rgb(217, 183, 12);
+    padding: 3px 3px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
+    border-radius: 3px;
+}
+
+.taskEvent {
+    display: flex;
+    flex: 1;
+    padding-top: 20px;
+}
+
+.closeBtn {
+    border: none;
+    font-size: 20px;
+    background-color: white;
 }
