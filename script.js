@@ -61,7 +61,7 @@ function addTasks() {
     taskDiv.textContent = inputTasks.value;
     currentOpenDay.appendChild(taskDiv);
     taskDiv.classList.add('new-task');
-    inputTasks.value="";
+    inputTasks.value = "";
 }
 
 const addEventButton = document.querySelector('.add-event');
@@ -74,5 +74,33 @@ function addEvents() {
     eventDiv.textContent = inputEvents.value;
     currentOpenDay.appendChild(eventDiv);
     eventDiv.classList.add('new-event');
-    inputEvents.value=""
+    inputEvents.value = ""
 }
+const nextButton = document.createElement('button');
+nextButton.textContent = 'Next';
+
+const PrevButton = document.createElement('button');
+PrevButton.textContent = 'Prev';
+
+var currentYear = new Date().getFullYear;
+var currentMonth = new Date().getMonth;
+console.log(currentMonth.toString(), currentYear.toString())
+
+document.body.appendChild(nextButton);
+document.body.appendChild(PrevButton);
+
+nextButton.addEventListener('click', function () {
+    currentMonth = currentMonth + 1;
+    if (currentMonth > 11) {
+        currentYear++;
+        currentMonth = 0;
+    }
+})
+
+PrevButton.addEventListener('click', function () {
+    currentMonth = currentMonth - 1;
+    if (currentMonth < 11) {
+        currentYear--;
+        currentMonth = 11;
+    }
+})
