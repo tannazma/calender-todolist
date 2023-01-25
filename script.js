@@ -37,8 +37,9 @@ document.querySelectorAll("#app-calendar .day").forEach(dayDiv => {
 const backgroundDrop = document.querySelector('.background');
 const dialog = document.querySelector('.dialogBox');
 backgroundDrop.addEventListener('click', function (event) {
-if (event.target===backgroundDrop){
-    closeDialog()}
+    if (event.target === backgroundDrop) {
+        closeDialog()
+    }
 })
 
 function showDialog() {
@@ -60,6 +61,7 @@ function addTasks() {
     taskDiv.textContent = inputTasks.value;
     currentOpenDay.appendChild(taskDiv);
     taskDiv.classList.add('new-task');
+    inputTasks.value="";
 }
 
 const addEventButton = document.querySelector('.add-event');
@@ -72,4 +74,5 @@ function addEvents() {
     eventDiv.textContent = inputEvents.value;
     currentOpenDay.appendChild(eventDiv);
     eventDiv.classList.add('new-event');
+    inputEvents.value=""
 }
