@@ -28,11 +28,18 @@ for (let day = 1; day <= 31; day++) {
 
 document.querySelectorAll("#app-calendar .day").forEach(dayDiv => {
     dayDiv.addEventListener("click", event => {
-        showDialog(); 
+        showDialog();
         currentOpenDay = dayDiv;
         event.currentTarget.classList.toggle("selected");
     });
 });
+
+const backgroundDrop = document.querySelector('.background');
+const dialog = document.querySelector('.dialogBox');
+backgroundDrop.addEventListener('click', function (event) {
+if (event.target===backgroundDrop){
+    closeDialog()}
+})
 
 function showDialog() {
     document.querySelector('#buy-dialog').style.display = 'grid';

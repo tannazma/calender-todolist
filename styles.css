@@ -40,7 +40,7 @@
     height: 100%;
 }
 
-.modal-box {
+.background {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
@@ -51,7 +51,7 @@
 
 }
 
-.background {
+.dialogBox {
     background: white;
     padding: 15px;
     display: flex;
