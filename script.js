@@ -36,6 +36,7 @@ document.querySelectorAll("#app-calendar .day").forEach(dayDiv => {
 
 function showDialog() {
     document.querySelector('#buy-dialog').style.display = 'grid';
+    document.querySelector('input').focus();
 }
 
 function closeDialog() {
