@@ -59,6 +59,10 @@
     border-radius: 10px;
 }
 
+.closeBtn:hover {
+    background-color: red;
+}
+
 .new-task {
     background-color: rgb(187, 114, 223);
     padding: 3px 3px;
