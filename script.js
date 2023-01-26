@@ -77,20 +77,21 @@ function addEvents() {
     inputEvents.value = ""
 }
 const nextButton = document.createElement('button');
-nextButton.innerHTML= '&#8250';
-nextButton.classList.add('.nextButton')
+nextButton.innerHTML = '&#8250';
+nextButton.classList.add('nextButton')
+document.querySelector('.buttonContainer').appendChild(nextButton)
 
-const PrevButton = document.createElement('button');
-PrevButton.innerHTML = '&#8249';
-nextButton.classList.add('.prevButton')
+const prevButton = document.createElement('button');
+prevButton.innerHTML = '&#8249';
+prevButton.classList.add('prevButton')
+document.querySelector('.buttonContainer').appendChild(prevButton)
+
 
 
 var currentYear = new Date().getFullYear();
 var currentMonth = new Date().getMonth();
 // console.log(currentMonth.toString(), currentYear.toString())
 
-document.body.prepend(nextButton);
-document.body.prepend(PrevButton);
 
 nextButton.addEventListener('click', function () {
     currentMonth = currentMonth + 1;
@@ -101,7 +102,7 @@ nextButton.addEventListener('click', function () {
     showMonthYear(currentMonth, currentYear);
 })
 
-PrevButton.addEventListener('click', function () {
+prevButton.addEventListener('click', function () {
     currentMonth = currentMonth - 1;
     if (currentMonth < 0) {
         currentYear--;

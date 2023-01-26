@@ -94,3 +94,24 @@
     font-size: 20px;
     background-color: white;
 }
+
+
+.monthAndYear {
+    text-align: center;
+    margin-top: 0;
+}
+
+.nextButton {
+    float: right;
+
+}
+
+.prevButton {
+    float: left;
+
+}
+
+.buttonContainer {
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
