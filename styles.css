@@ -17,8 +17,11 @@
 
 }
 
-.body {
+body {
     margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .selected {
@@ -37,7 +40,10 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    height: 100%;
+    flex:1;
+    border-top: 1px solid var(--light-gray);
+    border-left: 1px solid var(--light-gray);
+    margin: 10px;
 }
 
 .background {
@@ -103,11 +109,13 @@
 
 .nextButton {
     float: right;
+    margin-right: 20px;
 
 }
 
 .prevButton {
     float: left;
+    margin-left: 20px;
 
 }
 

@@ -116,12 +116,16 @@ function addEvents() {
 }
 const nextButton = document.createElement('button');
 nextButton.innerHTML = '&#8250';
-nextButton.classList.add('nextButton')
+nextButton.classList.add('nextButton');
+nextButton.classList.add("btn"); 
+nextButton.classList.add("btn-secondary");
 document.querySelector('.buttonContainer').appendChild(nextButton)
 
 const prevButton = document.createElement('button');
 prevButton.innerHTML = '&#8249';
 prevButton.classList.add('prevButton')
+prevButton.classList.add("btn"); 
+prevButton.classList.add("btn-secondary");
 document.querySelector('.buttonContainer').appendChild(prevButton)
 
 var day = new Date()
