@@ -25,7 +25,7 @@ for (let day = 1; day <= 31; day++) {
     ${name}${day}</div>`);
 }
 
-document.getElementById(new Date().getDate()).style.backgroundColor="rgb(187 204 187)"
+document.getElementById(new Date().getDate()).style.backgroundColor = "rgb(187 204 187)"
 
 document.querySelectorAll("#app-calendar .day").forEach(dayDiv => {
     dayDiv.addEventListener("click", event => {
@@ -39,7 +39,7 @@ const backgroundDrop = document.querySelector('.background');
 const dialog = document.querySelector('.dialogBox');
 backgroundDrop.addEventListener('click', function (event) {
     if (event.target === backgroundDrop) {
-        closeDialog()
+        closeDialog();
     }
 })
 
@@ -57,12 +57,19 @@ addTaskButton.addEventListener("click", addTasks)
 
 function addTasks() {
     const inputTasks = document.querySelector('.input-task');
+    if (inputTasks.value.trim() === '') { 
+        inputTasks.value = "";
+        document.querySelector('input').focus();
+        alert('You have to put something!') 
+        return
+    }
     // console.log(inputTasks.value);
     const taskDiv = document.createElement('div');
     taskDiv.textContent = inputTasks.value;
     currentOpenDay.appendChild(taskDiv);
     taskDiv.classList.add('new-task');
     inputTasks.value = "";
+    closeDialog();
 }
 
 const addEventButton = document.querySelector('.add-event');
@@ -70,24 +77,31 @@ addEventButton.addEventListener("click", addEvents)
 
 function addEvents() {
     const inputEvents = document.querySelector('.input-event');
+    if (inputEvents.value.trim() === '') { 
+        inputEvents.value = ""
+        document.querySelector('input').focus();
+        alert('You have to put something!') 
+        return 
+    }
     // console.log(inputEvents.value);
     const eventDiv = document.createElement('div');
     eventDiv.textContent = inputEvents.value;
     currentOpenDay.appendChild(eventDiv);
     eventDiv.classList.add('new-event');
-    inputEvents.value = ""
+    inputEvents.value = "";
+    closeDialog();
 }
 const nextButton = document.createElement('button');
 nextButton.innerHTML = '&#8250';
 nextButton.classList.add('nextButton');
-nextButton.classList.add("btn"); 
+nextButton.classList.add("btn");
 nextButton.classList.add("btn-secondary");
 document.querySelector('.buttonContainer').appendChild(nextButton)
 
 const prevButton = document.createElement('button');
 prevButton.innerHTML = '&#8249';
 prevButton.classList.add('prevButton')
-prevButton.classList.add("btn"); 
+prevButton.classList.add("btn");
 prevButton.classList.add("btn-secondary");
 document.querySelector('.buttonContainer').appendChild(prevButton)
 
