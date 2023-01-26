@@ -77,17 +77,20 @@ function addEvents() {
     inputEvents.value = ""
 }
 const nextButton = document.createElement('button');
-nextButton.textContent = 'Next';
+nextButton.innerHTML= '&#8250';
+nextButton.classList.add('.nextButton')
 
 const PrevButton = document.createElement('button');
-PrevButton.textContent = 'Prev';
+PrevButton.innerHTML = '&#8249';
+nextButton.classList.add('.prevButton')
 
-var currentYear = new Date().getFullYear;
-var currentMonth = new Date().getMonth;
-console.log(currentMonth.toString(), currentYear.toString())
 
-document.body.appendChild(nextButton);
-document.body.appendChild(PrevButton);
+var currentYear = new Date().getFullYear();
+var currentMonth = new Date().getMonth();
+// console.log(currentMonth.toString(), currentYear.toString())
+
+document.body.prepend(nextButton);
+document.body.prepend(PrevButton);
 
 nextButton.addEventListener('click', function () {
     currentMonth = currentMonth + 1;
@@ -95,12 +98,26 @@ nextButton.addEventListener('click', function () {
         currentYear++;
         currentMonth = 0;
     }
+    showMonthYear(currentMonth, currentYear);
 })
 
 PrevButton.addEventListener('click', function () {
     currentMonth = currentMonth - 1;
-    if (currentMonth < 11) {
+    if (currentMonth < 0) {
         currentYear--;
         currentMonth = 11;
     }
+    showMonthYear(currentMonth, currentYear);
 })
+
+function showMonthYear(month, year) {
+    const monthAndYear = document.querySelector('.monthAndYear');
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    monthAndYear.textContent = monthNames[month] + " " + year
+    document.body.prepend(monthAndYear)
+}
+
+const calendarHeading = document.querySelector('.monthAndYear');
+showMonthYear(currentMonth, currentYear);
+
+document.body.prepend(calendarHeading);
