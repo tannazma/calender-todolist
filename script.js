@@ -1,4 +1,34 @@
 // import { isWeekend } from "./date-helpers.js";
+// window.onload = selectDay;
+
+// // window.addEventListener("load", selectDay)
+
+// function selectDay() {
+
+//     for (i = 1; i <= dayInMonth; i++) {
+
+//         // Generate the unique ID for the day
+//         var id = "day-" + year + "-" + (month + 1) + "-" + i;
+
+//         // Get the day element
+//         var dayElement = document.getElementById(id);
+
+//         // Add the id to the element
+
+//         // dayElement.id = id;
+//         // dayElement.classList.add("highlight");
+//         // document.body.appendChild(dayElement);
+//     }
+// };
+
+// var month = new Date().getMonth();
+// var year = new Date().getFullYear();
+
+// // Get the number of days in the current month
+// var dayInMonth = new Date(year, month + 1, 0).getDate();
+
+// Loop through the days of the month
+
 let currentOpenDay;
 function isWeekend(day) {
     return day % 7 === 0 || day % 7 === 6;
@@ -16,9 +46,17 @@ for (let day = 1; day <= 31; day++) {
     if (day <= 7) {
 
         const dayName = getDayName(day);
-        name = `<div class="name" >${dayName}</div>`;
-    }
+        name = `<div class="name" id="${dayName}">${dayName}</div>`;
+    } else {
+        for (let id = 1; id <= 31; id++) {
+            let names = ''
+            if (id <= 31) {
+                const dayId = getDayName(id);
+                names = `<div class="names" id="${dayId}"></div>`;
+            }
+        }
 
+    }
 
     const weekend = isWeekend(day);
 
@@ -86,8 +124,8 @@ prevButton.innerHTML = '&#8249';
 prevButton.classList.add('prevButton')
 document.querySelector('.buttonContainer').appendChild(prevButton)
 
-
-
+var day = new Date()
+var currentDay = new Date().getDay()
 var currentYear = new Date().getFullYear();
 var currentMonth = new Date().getMonth();
 // console.log(currentMonth.toString(), currentYear.toString())
@@ -122,3 +160,16 @@ const calendarHeading = document.querySelector('.monthAndYear');
 showMonthYear(currentMonth, currentYear);
 
 document.body.prepend(calendarHeading);
+
+document.querySelectorAll("#app-calendar .day").value = currentDay;
+console.log(currentDay, currentMonth, currentYear);
+
+// Create an element to represent the date
+
+
+    //  document.querySelectorAll("#app-calendar .day").classList.add('highlight')
+    // if ( day === day.getDate() && year === day.getFullYear() && month === day.getMonth() ) {
+    //     cell.className = "highlight";
+    //     cell.classList.ad('highlight')
+    // }
+    // console.log(day)
