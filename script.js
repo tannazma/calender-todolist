@@ -48,6 +48,17 @@ function showDialog() {
     document.querySelector('input').focus();
 }
 
+const addInput = document.querySelector('.input-task');
+addInput.addEventListener('input', function () {
+    if (addInput.value === '') {
+        addTaskButton.disabled = true;
+        addEventButton.disabled = true;
+    } else {
+        addTaskButton.disabled = false;
+        addEventButton.disabled = false
+    }
+})
+
 function closeDialog() {
     document.querySelector('#buy-dialog').style.display = 'none';
 }
@@ -57,10 +68,10 @@ addTaskButton.addEventListener("click", addTasks)
 
 function addTasks() {
     const inputTasks = document.querySelector('.input-task');
-    if (inputTasks.value.trim() === '') { 
+    if (inputTasks.value.trim() === '') {
         inputTasks.value = "";
         document.querySelector('input').focus();
-        alert('You have to put something!') 
+        alert('You have to put something!')
         return
     }
     // console.log(inputTasks.value);
@@ -77,11 +88,11 @@ addEventButton.addEventListener("click", addEvents)
 
 function addEvents() {
     const inputEvents = document.querySelector('.input-event');
-    if (inputEvents.value.trim() === '') { 
+    if (inputEvents.value.trim() === '') {
         inputEvents.value = ""
         document.querySelector('input').focus();
-        alert('You have to put something!') 
-        return 
+        alert('You have to put something!')
+        return
     }
     // console.log(inputEvents.value);
     const eventDiv = document.createElement('div');
