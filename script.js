@@ -155,3 +155,19 @@ document.body.prepend(calendarHeading);
 
 document.querySelectorAll("#app-calendar .day").value = currentDay;
 console.log(currentDay, currentMonth, currentYear);
+
+// var app = new Vue({
+//     el: '#vue-root',
+//     template:`<div>
+//     <input v-model="message" />
+//     <button :disabled="message.trim()===''" @click="doSomething()">Add</button>
+//     </div>`,
+//     data: {
+//         message: ''
+//     },
+//     methods:{
+//         doSomething(){
+//             alert(this.message)
+//         }
+//     }
+// })
