@@ -33,6 +33,7 @@ document.querySelectorAll("#app-calendar .day").forEach(dayDiv => {
         currentOpenDay = dayDiv;
         event.currentTarget.classList.toggle("selected");
     });
+    
 });
 
 const backgroundDrop = document.querySelector('.background');
@@ -61,6 +62,9 @@ addInput.addEventListener('input', function () {
 
 function closeDialog() {
     document.querySelector('#buy-dialog').style.display = 'none';
+    document.querySelectorAll("#app-calendar .day.selected").forEach(selectedDayDiv => {
+        selectedDayDiv.classList.remove("selected");
+    });
 }
 
 const addTaskButton = document.querySelector('.add-task');
