@@ -1,20 +1,20 @@
 
 let currentOpenDay;
 function isWeekend(day) {
-    return day % 7 === 0 || day % 7 === 6;
+    return day % 7 === 1 || day % 7 === 0;
 }
 
 const calendar = document.querySelector("#app-calendar");
 
 const getDayName = day => {
-    const date = new Date(Date.UTC(2018, 0, day));
+    const date = new Date(Date.UTC(2023, 0, day));
     return new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(date);
 }
 
 for (let day = 1; day <= 31; day++) {
     let name = ""
     if (day <= 7) {
-
+        const date = new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), day));
         const dayName = getDayName(day);
         name = `<div class="name" id="${dayName}">${dayName}</div>`;
     }
@@ -158,7 +158,8 @@ showMonthYear(currentMonth, currentYear);
 document.body.prepend(calendarHeading);
 
 document.querySelectorAll("#app-calendar .day").value = currentDay;
-console.log(currentDay, currentMonth, currentYear);
+console.log(currentDay, day, currentMonth, currentYear);
+
 
 // var app = new Vue({
 //     el: '#vue-root',
