@@ -11,7 +11,13 @@ const getDayName = day => {
     return new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(date);
 }
 
-for (let day = 1; day <= 31; day++) {
+const getDayNameOfCurrentMonth = day => {
+    const date = new Date(new Date().setDate(day));
+    return new Intl.DateTimeFormat("en-US", { weekday: 'short' }).format(date);
+}
+
+let toSubtract = 0;
+for (let day = 1; day <= 31 + toSubtract; day++) {
     let name = ""
     if (day <= 7) {
         const date = new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), day));
@@ -21,8 +27,52 @@ for (let day = 1; day <= 31; day++) {
 
     const weekend = isWeekend(day);
 
-    calendar.insertAdjacentHTML("beforeend", `<div id="${day}" class="day ${weekend ? "weekend" : ""}">
-    ${name}${day}</div>`);
+    let _day = day;
+
+    const firstDayOfTheMonth = getDayNameOfCurrentMonth(1);
+    switch (firstDayOfTheMonth) {
+        case 'Sun':
+            if (day < 7) {
+                _day = '';
+                toSubtract = 6
+            }
+            break
+        case 'Sat':
+            if (day < 6) {
+                _day = '';
+                toSubtract = 5
+            }
+            break
+        case 'Fri':
+            if (day < 5) {
+                _day = '';
+                toSubtract = 4
+            }
+            break
+        case 'Thu':
+            if (day < 4) {
+                _day = '';
+                toSubtract = 3
+            }
+            break
+        case 'Wed':
+            if (day < 3) {
+                _day = '';
+                toSubtract = 2
+            }
+            break
+        case 'Tue':
+            if (day < 2) {
+                _day = '';
+                toSubtract = 1
+            }
+            break
+    }
+
+    const writtenDay = Number.isInteger(_day) ? (_day - toSubtract) : _day
+
+    calendar.insertAdjacentHTML("beforeend", `<div id="${writtenDay}" class="day ${weekend ? "weekend" : ""}">
+    ${name}${writtenDay}</div>`);
 }
 
 document.getElementById(new Date().getDate()).style.backgroundColor = "rgb(187 204 187)"
@@ -33,7 +83,7 @@ document.querySelectorAll("#app-calendar .day").forEach(dayDiv => {
         currentOpenDay = dayDiv;
         event.currentTarget.classList.toggle("selected");
     });
-    
+
 });
 
 const backgroundDrop = document.querySelector('.background');
